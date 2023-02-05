@@ -12,6 +12,12 @@ import java.util.LinkedHashSet;
 import java.util.Optional;
 import java.util.Set;
 
+/**
+ * Weak Markdown Parser:
+ * I need to refactor MarkdownParser class, so for now I decided to use this kind of Set initialisation.
+ * But also added methods which add items to these sets.
+ * The order of adding items to these sets plays big role and defines the order of Markdown to html parsing.
+ */
 public class MarkdownParser {
     private final Set<SingleLineParser> singleLineParsers = new LinkedHashSet<>() { {
         MarkdownTextFormatToHtmlConverter converter = new MarkdownTextFormatToHtmlConverter(
@@ -83,6 +89,7 @@ public class MarkdownParser {
             }
         }
 
+        // it's better to use orElse* methods, but in case of refactoring there shouldn't be any auxiliary functionality
         return parseActiveLine(lineOptional.get());
     }
 

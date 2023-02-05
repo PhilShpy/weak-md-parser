@@ -4,6 +4,9 @@ import com.github.arena.challenges.weakmdparser.parsers.active.ActiveElementPars
 
 import java.util.Optional;
 
+/**
+ * This class manages UL wrapping.
+ */
 public class ActiveListParser implements ActiveElementParser {
     private boolean isActive = false;
 
